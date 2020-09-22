@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using System.Configuration;
 using ScoopenAPIModals.Account;
 
+using ScoopenAPIModals.AgentRegistration1;
+
 namespace ScoopenAPIDAL
 {
     public class AccountControllerDAL : IAccountControllerDAL
@@ -126,6 +128,15 @@ namespace ScoopenAPIDAL
             }
 
             return -1;
+        }
+
+        public void AgentRegister(ScoopenAPIModals.AgentRegistration1.Agent agent)
+        {
+            using(PrintShoppyDBEntities db=new PrintShoppyDBEntities())
+            {
+                db.Agents.Add(agent);
+                db.SaveChanges();
+            }
         }
     }
 }

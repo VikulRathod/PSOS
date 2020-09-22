@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ScoopenAPIModals, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Server\ScoopenAPIBLL\bin\Debug\ScoopenAPIModals.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -42,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\ActiveUser.cs" />
+    <Compile Include="Account\Agentinfo.cs" />
     <Compile Include="Account\LoginRequest.cs" />
     <Compile Include="Notifications\LoginDetailsSmsRequest.cs" />
     <Compile Include="Notifications\SmsOtpRequest.cs" />

@@ -10,6 +10,7 @@ using ScoopenNotifications;
 using System.Web.Helpers;
 using ScoopenAPIDAL;
 
+
 namespace APIAuthentication.Controllers
 {
     public class RegisterController : ApiController
@@ -107,5 +108,7 @@ namespace APIAuthentication.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
             }
         }
+
+        
     }
 }

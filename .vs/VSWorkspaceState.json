@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "\\Client\\ScoopenModals",
+    "\\Client\\ScoopenModals\\Account",
+    "\\Client\\ScoopenUI",
+    "\\Client\\ScoopenUI\\Controllers",
+    "\\Server"
+  ],
+  "PreviewInSolutionExplorer": false
+}

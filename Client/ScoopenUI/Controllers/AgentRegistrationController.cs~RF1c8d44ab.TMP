@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Http.Description;
+using ScoopenAPI;
+using ScoopenAPIBLL;
+using ScoopenAPIDAL;
+using ScoopenAPIModals;
+
+
+
+namespace RegistrationAndLogin.Controllers
+{
+    public class AgentRegistrationController : Controller
+    {
+        // GET: AgentRegistration
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult AddAgent1()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddAgent1(Agent agent)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (var client = new HttpClient())
+                    {
+                        client.BaseAddress = new Uri("http://localhost:63165/api/AgentRegistration");
+
+                        var PostTask = client.PostAsJsonAsync("AgentRegistration", agent);
+                        PostTask.Wait();
+
+                        var result = PostTask.Result;
+                        if (result.IsSuccessStatusCode)
+                        {
+                            ViewBag.SuccessMessage = " <script> alert('Registration is Successfull')</script>";
+
+                            ModelState.Clear();
+
+                            return View();
+                            //return RedirectToRoute(new { action = "AddAgent", controller = "Registration", area = "" });
+                        }
+                    }
+                }
+                ModelState.AddModelError(string.Empty, "Server Error");
+                return View(agent);
+
+            }
+            catch (Exception)
+            {
+
+                ModelState.AddModelError(string.Empty, "Server Error");
+                return View(agent);
+            }
+        }
+
+
+    }
+}
