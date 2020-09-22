@@ -7,6 +7,8 @@ using ScoopenAPIDAL;
 using ScoopenAPIModals.Account;
 using ScoopenAPIDAL;
 
+using ScoopenAPIModals.AgentRegistration1;
+
 namespace ScoopenAPIBLL
 {
     public class AccountControllerBLL
@@ -46,6 +48,11 @@ namespace ScoopenAPIBLL
         public int ChangePasswordOnFirstLogin(string userName, string currentPassword, string newPassword)
         {
             return _iAccountControllerDAL.ChangePasswordOnFirstLogin(userName, currentPassword, newPassword);
+        }
+
+        public void AgentRegister(Agent agent)
+        {
+            _iAccountControllerDAL.AgentRegister(agent);
         }
     }
 }
