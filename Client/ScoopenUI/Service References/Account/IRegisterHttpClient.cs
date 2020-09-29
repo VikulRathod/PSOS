@@ -1,5 +1,5 @@
 ﻿using ScoopenAPIModals.Notifications;
-using ScoopenModals.Account;
+using ScoopenAPIModals.Account;
 using System;
 using System.Collections.Generic;
 using System.Linq;

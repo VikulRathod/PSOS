@@ -1,6 +1,6 @@
 ﻿using RegistrationAndLogin.Api;
 using ScoopenAPIModals.Notifications;
-using ScoopenModals.Account;
+using ScoopenAPIModals.Account;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Security;
+
 
 namespace RegistrationAndLogin.Controllers
 {
