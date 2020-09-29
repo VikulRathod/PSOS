@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ScoopenAPIModals.Account
 {
-    public class User
+    public class User1
     {
         public int Id { get; set; }
         public string UserName { get; set; }

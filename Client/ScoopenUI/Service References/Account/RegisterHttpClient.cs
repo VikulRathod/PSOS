@@ -1,4 +1,5 @@
-﻿using ScoopenAPIModals.Notifications;
+﻿using ScoopenAPIModals.Account;
+using ScoopenAPIModals.Notifications;
 using ScoopenModals.Account;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,21 @@ namespace RegistrationAndLogin.Service_References.Account
                 var resource = string.Format("api/register");
 
                 var response = ServiceClient.PostAsJsonAsync(resource, userInfo).Result;
+
+                if (response.IsSuccessStatusCode)
+                    return response;
+
+                return new HttpResponseMessage(HttpStatusCode.BadRequest);
+            }
+        }
+
+        public HttpResponseMessage RegisterAdmin(AdminRegisterModel AdminInfo)
+        {
+            using (ServiceClient)
+            {
+                var resource = string.Format("api/register");
+
+                var response = ServiceClient.PostAsJsonAsync(resource, AdminInfo).Result;
 
                 if (response.IsSuccessStatusCode)
                     return response;

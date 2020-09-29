@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoopenUI", "ScoopenUI\ScoopenUI.csproj", "{50A2C155-5AE5-4C3D-BC1A-A5C46F8CBB88}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoopenModals", "ScoopenModals\ScoopenModals.csproj", "{30850782-70A0-48A2-9BEE-56BAD3FBB0AC}"
