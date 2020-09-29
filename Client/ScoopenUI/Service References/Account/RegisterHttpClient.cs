@@ -1,11 +1,13 @@
 ﻿using ScoopenAPIModals.Notifications;
-using ScoopenModals.Account;
+using ScoopenAPIModals.Account;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
+
+using RegistrationAndLogin.Service_References.Account;
 
 namespace RegistrationAndLogin.Service_References.Account
 {
@@ -70,5 +72,6 @@ namespace RegistrationAndLogin.Service_References.Account
                 return new HttpResponseMessage(HttpStatusCode.BadRequest);
             }
         }
-    }
+
+            }
 }

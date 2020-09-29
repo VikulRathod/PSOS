@@ -13,6 +13,7 @@ namespace RegistrationAndLogin
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+          
         }
     }
 }

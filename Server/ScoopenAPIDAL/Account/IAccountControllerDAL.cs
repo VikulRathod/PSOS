@@ -1,4 +1,6 @@
 ﻿using ScoopenAPIModals.Account;
+
+using ScoopenAPIModals.AgentRegistration1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +22,7 @@ namespace ScoopenAPIDAL
         User Authenticate(string username, string password);
 
         int ChangePasswordOnFirstLogin(string userName, string currentPassword, string newPassword);
-    }
+
+        void AgentRegister(Agent agent);
+     }
 }

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ScoopenAPIModals;
 using System.Net.Http;
 using System.Web.Mvc;
 using RegistrationAndLogin.Service_References.Account;
-using ScoopenModals.Account;
+using ScoopenAPIModals.Account;
 using ScoopenAPIModals.Notifications;
+
 
 namespace RegistrationAndLogin.Api
 {
