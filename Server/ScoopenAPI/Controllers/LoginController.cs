@@ -18,7 +18,7 @@
         public HttpResponseMessage Authenticate([FromBody] LoginRequest login)
         {
             AccountControllerBLL bll = new AccountControllerBLL(new AccountControllerDAL());
-            ScoopenAPIModals.Account.User user = bll.Authenticate(login.Username, login.Password);
+            ScoopenAPIModals.Account.User1 user = bll.Authenticate(login.Username, login.Password);
 
             if (user.IsAuthenticated == 1 && user.AccountLocked == 0)
             {

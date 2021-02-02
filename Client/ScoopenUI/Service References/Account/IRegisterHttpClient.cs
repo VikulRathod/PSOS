@@ -1,4 +1,5 @@
-﻿using ScoopenAPIModals.Notifications;
+﻿using ScoopenAPIModals.Account;
+using ScoopenAPIModals.Notifications;
 using ScoopenModals.Account;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace RegistrationAndLogin.Service_References.Account
     public interface IRegisterHttpClient
     {
         HttpResponseMessage RegisterUser(UserInfo userInfo);
+        HttpResponseMessage RegisterAdmin(AdminRegisterModel AdminInfo);
         HttpResponseMessage ActivateRegisteredUser(OtpRequest request);
         HttpResponseMessage Authenticate(LoginRequest login);
         HttpResponseMessage ChangePasswordOnFirstLogin(LoginRequest login);

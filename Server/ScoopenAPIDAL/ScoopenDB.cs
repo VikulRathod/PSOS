@@ -14,5 +14,17 @@ namespace ScoopenAPIDAL
         public static string spGetOtpFromDatabase = "usp_GetOtpFromDatabase";
         public static string spAuthenticateUser = "spAuthenticateUser";
         public static string spChangePasswordOnFirstLogin = "usp_ChangePasswordOnFirstLogin";
+        public static string spAdminRegister = "spRegisterAdmin";
     }
+
+
+    //public static class PrintShoppy
+    //{
+    //    public static string spRegisterUser = "spRegisterUser";
+    //    public static string spActivateRegisteredUser = "spActivateRegisteredUser";
+    //    public static string spSaveOtpInDatabase = "usp_SaveOtpInDatabase";
+    //    public static string spGetOtpFromDatabase = "usp_GetOtpFromDatabase";
+    //    public static string spAuthenticateUser = "spAuthenticateUser";
+    //    public static string spChangePasswordOnFirstLogin = "usp_ChangePasswordOnFirstLogin";
+    //}
 }

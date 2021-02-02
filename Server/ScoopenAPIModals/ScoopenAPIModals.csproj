@@ -31,9 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,19 +50,112 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\ActiveUser.cs" />
+    <Compile Include="Account\AdminRegister.cs" />
+    <Compile Include="Account\AdminRegister\Admin.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Account\AdminRegister\Admin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Account\AdminRegister\Admin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\AdminRegister\AdminRegister.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Account\AdminRegister\City.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Account\AdminRegister\Country.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Account\AdminRegister\StateTable.cs">
+      <DependentUpon>Admin.tt</DependentUpon>
+    </Compile>
     <Compile Include="Account\LoginRequest.cs" />
+    <Compile Include="Account\UserRegisterModel.cs" />
+    <Compile Include="Account\UserRegister\User.cs">
+      <DependentUpon>UserInfo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Account\UserRegister\UserInfo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserInfo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Account\UserRegister\UserInfo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserInfo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Account\UserRegister\UserInfo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserInfo.edmx</DependentUpon>
+    </Compile>
     <Compile Include="GlobalConstants.cs" />
     <Compile Include="Notifications\LoginDetailsSmsRequest.cs" />
     <Compile Include="Notifications\SmsOtpRequest.cs" />
     <Compile Include="Notifications\SmsOtpResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Account\Role.cs" />
-    <Compile Include="Account\User.cs" />
+    <Compile Include="Account\User1.cs" />
     <Compile Include="Account\UserAddress.cs" />
     <Compile Include="Account\UserInfo.cs" />
     <Compile Include="Account\UserResetPassword.cs" />
     <Compile Include="Account\UserRole.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Account\UserRegister\UserInfo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UserInfo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Account\AdminRegister\Admin.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Admin.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Account\AdminRegister\Admin.edmx.diagram">
+      <DependentUpon>Admin.edmx</DependentUpon>
+    </None>
+    <None Include="Account\UserRegister\UserInfo.edmx.diagram">
+      <DependentUpon>UserInfo.edmx</DependentUpon>
+    </None>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\AdminRegister\Admin.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Admin.edmx</DependentUpon>
+      <LastGenOutput>Admin.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Account\AdminRegister\Admin.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Admin.edmx</DependentUpon>
+      <LastGenOutput>Admin.cs</LastGenOutput>
+    </Content>
+    <Content Include="Account\UserRegister\UserInfo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserInfo.edmx</DependentUpon>
+      <LastGenOutput>UserInfo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Account\UserRegister\UserInfo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserInfo.edmx</DependentUpon>
+      <LastGenOutput>UserInfo.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

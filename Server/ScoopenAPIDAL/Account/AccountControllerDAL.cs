@@ -12,6 +12,8 @@ namespace ScoopenAPIDAL
 {
     public class AccountControllerDAL : IAccountControllerDAL
     {
+        private object zipCode;
+
         public int RegisterUser(string firstName, string lastName, string mobile, string email, string otp)
         {
             using (SqlConnection con = Connection.SqlConnectionObject)
@@ -22,6 +24,35 @@ namespace ScoopenAPIDAL
                      new SqlParameter() { ParameterName = "@Mobile", Value = mobile },
                      new SqlParameter() { ParameterName = "@Email", Value = email },
                      new SqlParameter() { ParameterName = "@Otp", Value = otp });
+
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        return (int)reader[0];
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+        public int RegisterAdmin(string FirstName, string LastName, string Email, string Password, string PhoneNumber, string Address, int ZipCode)
+
+        {
+            using (SqlConnection con = Connection.SqlConnectionObject)
+            {
+                SqlDataReader reader = ExecuteScoopenDB.ExecuteReader(con, ScoopenDB.spRegisterUser,
+                     new SqlParameter() { ParameterName = "@FirstName", Value = FirstName },
+                     new SqlParameter() { ParameterName = "@LastName", Value = LastName },
+                     new SqlParameter() { ParameterName = "@Email", Value = Email },
+                     new SqlParameter() { ParameterName = "@Password", Value = Password },
+
+                     new SqlParameter() { ParameterName = "@PhoneNumber", Value = PhoneNumber },
+                     new SqlParameter() { ParameterName = "@Address", Value = Address });
+                new SqlParameter() { ParameterName = "@ZipCode", Value = zipCode };
+
 
 
                 if (reader.HasRows)
@@ -82,9 +113,9 @@ namespace ScoopenAPIDAL
             return string.Empty;
         }
 
-        public User Authenticate(string username, string password)
+        public User1 Authenticate(string username, string password)
         {
-            User user = new User();
+            User1 user = new User1();
 
             using (SqlConnection con = Connection.SqlConnectionObject)
             {

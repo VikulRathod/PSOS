@@ -23,6 +23,12 @@ namespace ScoopenAPIBLL
             return _iAccountControllerDAL.RegisterUser(firstName, lastName, mobile, email, otp);
         }
 
+        public int RegisterAdmin(string FirstName, string LastName, string Email, string Password, string PhoneNumber,string Address,int ZipCode)
+        {
+            return _iAccountControllerDAL.RegisterAdmin(FirstName, LastName, Email, Password, PhoneNumber,Address , ZipCode);
+        }
+
+
         public int ActivateRegisteredUser(string mobile, string password, string email, string otp)
         {
             return _iAccountControllerDAL.ActivateRegisteredUser(mobile, password, email, otp);
@@ -38,7 +44,7 @@ namespace ScoopenAPIBLL
             return _iAccountControllerDAL.GetOtpFromDatabase(mobile, email);
         }
 
-        public User Authenticate(string username, string password)
+        public User1 Authenticate(string username, string password)
         {
             return _iAccountControllerDAL.Authenticate(username, password);
         }

@@ -1,0 +1,86 @@
+﻿@model ScoopenAPIModals.Account.UserRegisterModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <div class="signup-form">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <h2>Register</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "First Name" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-xs-6">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "User Name" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-xs-6">
+                            @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Mobile Number" } })
+                            @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email Id" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                        <div>
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            @Html.EditorFor(model => model.ConfirmedPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Confirmed Password" } })
+                            @Html.ValidationMessageFor(model => model.ConfirmedPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="clearform" class="btn btn-success btn-lg btn-block">Register Now</button>
+                    </div>
+        }
+        <div class="text-center">Already have an account? <a href="#">Sign in</a></div>
+    </div>
+</body>
+</html>
+
